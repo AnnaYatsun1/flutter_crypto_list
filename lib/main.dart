@@ -60,25 +60,28 @@ Future<void> main() async {
       ((error, stack) => {getIt<Talker>().handle(error, stack)}));
 }
 
-// void main() {
-//   GetIt.I
-//       .registerSingleton<AbstractCoinRepository>(CryptocoinsRepo(dio: Dio()));
-//   runApp(const MycCryptoApp());
-// }
-
-class MycCryptoApp extends StatelessWidget {
+class MycCryptoApp extends StatefulWidget {
   const MycCryptoApp({super.key});
 
+  @override
+  State<MycCryptoApp> createState() => _MycCryptoAppState();
+}
+
+class _MycCryptoAppState extends State<MycCryptoApp> {
   // This widget is the root of your application.
+  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: darkThem,
-      initialRoute: '/',
-      navigatorObservers: [TalkerRouteObserver(GetIt.I<Talker>())],
+      // initialRoute: '/',
+      routerConfig: _appRouter.config(
+          // navigatorObservers () => : [TalkerRouteObserver(GetIt.I<Talker>())]
+          ),
+      // navigatorObservers: [TalkerRouteObserver(GetIt.I<Talker>())],
       // routes: routes,
-      home: const MyHomePage(title: 'My crypto app'),
+      // home: const MyHomePage(title: 'My crypto app'),
     );
   }
 }
