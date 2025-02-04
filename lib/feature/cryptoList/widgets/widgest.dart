@@ -1,0 +1,1 @@
+export 'cryptoCoinTile.dart';

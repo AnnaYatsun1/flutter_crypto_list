@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "109701368635",
+    "project_id": "cryptocion-1298b",
+    "storage_bucket": "cryptocion-1298b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109701368635:android:77eaed9707cb488fde051e",
+        "android_client_info": {
+          "package_name": "com.yatsunhanna.test_list_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtk1tdmdTVaSyco1f48F5KHMpGRBE40wo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
