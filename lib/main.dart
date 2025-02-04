@@ -77,8 +77,9 @@ class _MycCryptoAppState extends State<MycCryptoApp> {
       theme: darkThem,
       // initialRoute: '/',
       routerConfig: _appRouter.config(
-          // navigatorObservers () => : [TalkerRouteObserver(GetIt.I<Talker>())]
-          ),
+        navigatorObservers: () => [TalkerRouteObserver(GetIt.I<Talker>())],
+        // navigatorObservers () => : [TalkerRouteObserver(GetIt.I<Talker>())]
+      ),
       // navigatorObservers: [TalkerRouteObserver(GetIt.I<Talker>())],
       // routes: routes,
       // home: const MyHomePage(title: 'My crypto app'),
