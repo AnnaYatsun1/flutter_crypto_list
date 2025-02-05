@@ -1,11 +1,10 @@
-import 'package:test_list_flutter/feature/%D1%81ryptoCoin/view/cryptoCoinScreen.dart';
-import 'package:flutter/material.dart';
-import 'package:test_list_flutter/repo/crypto_coins_repo/model/crypto_coin.dart';
 import 'package:auto_route/auto_route.dart';
 
-part 'router.g.dart';
+import 'package:test_list_flutter/router/router.gr.dart';
 
-@AutoRouterConfig()
+const REPLACE_IN_ROUTE_NAME = 'Screen|Page,Route';
+
+@AutoRouterConfig(replaceInRouteName: REPLACE_IN_ROUTE_NAME)
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
