@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger.dart';
+import 'package:test_list_flutter/feature/auth/welcome_register_screen.dart';
 import 'package:test_list_flutter/feature/cryptoList.dart';
+import 'package:test_list_flutter/feature/loading_screen/loading_screen.dart';
+import 'package:test_list_flutter/feature/loading_screen/welcome_screen.dart';
 import 'package:test_list_flutter/firebase_options.dart';
 import 'package:test_list_flutter/repo/crypto_coins_repo/abstract/abstract_coin_repository.dart';
 import 'package:test_list_flutter/repo/crypto_coins_repo/cryptoCoinsRepo.dart';
@@ -28,7 +31,7 @@ import 'repo/crypto_coins_repo/model/CryptoCoinDetail.dart';
 final getIt = GetIt.instance;
 final talker = TalkerFlutter.init();
 final dio = Dio();
-late Isar isaDB;
+// late Isar isaDB;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,10 +39,10 @@ Future<void> main() async {
   getIt<Talker>().debug('Talker working correct');
   await Isar.initializeIsarCore();
   final dir = await getApplicationDocumentsDirectory();
-  isaDB = await Isar.open([CryptoCoinSchema], directory: dir.path);
-  getIt.registerSingleton<AbstractCoinRepository>(
-    CryptocoinsRepo(dio: dio, isar: isaDB),
-  );
+  // isaDB = await Isar.open([CryptoCoinSchema], directory: dir.path);
+  // getIt.registerSingleton<AbstractCoinRepository>(
+  //   CryptocoinsRepo(dio: dio, isar: isaDB),
+  // );
 
   final firebase = await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -72,9 +75,16 @@ class _MycCryptoAppState extends State<MycCryptoApp> {
   final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
+    // return MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   title: "Test",
+    //   home: WelcomeRegisterScreen(),
+    //   // LoadingScreen(),
+    // );
     return MaterialApp.router(
       title: 'Flutter Demo',
       theme: darkThem,
+      debugShowCheckedModeBanner: false,
       // initialRoute: '/',
       routerConfig: _appRouter.config(
         navigatorObservers: () => [TalkerRouteObserver(GetIt.I<Talker>())],

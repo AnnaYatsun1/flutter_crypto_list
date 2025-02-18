@@ -15,11 +15,11 @@ class CryptocoinsRepo implements AbstractCoinRepository {
 
   @override
   Future<List<CryptoCoin>> getCooinsList() async {
-    final cachedCoins = await isar.cryptoCoins.where().findAll();
-    if (cachedCoins.isNotEmpty) {
-      debugPrint("✅ Загружаем данные из кеша (${cachedCoins.length} монет)");
-      return cachedCoins;
-    }
+    // final cachedCoins = await isar.cryptoCoins.where().findAll();
+    // if (cachedCoins.isNotEmpty) {
+    //   debugPrint("✅ Загружаем данные из кеша (${cachedCoins.length} монет)");
+    //   return cachedCoins;
+    // }
     try {
       final response = await dio.get(
         'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,BNB,SOL,AID,CAG,DOV&tsyms=USD',
@@ -45,7 +45,7 @@ class CryptocoinsRepo implements AbstractCoinRepository {
       }).toList();
 
       await isar.writeTxn(() async {
-        await isar.cryptoCoins.putAll(dataList);
+        // await isar.cryptoCoins.putAll(dataList);
       });
 
       return dataList;

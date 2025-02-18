@@ -24,7 +24,7 @@ import 'package:test_list_flutter/repo/crypto_coins_repo/model/CryptoCoinDetail.
 import 'package:isar/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'crypto_coin.g.dart'; // ✅ Должно быть на отдельной строке
+// part 'crypto_coin.g.dart'; // ✅ Должно быть на отдельной строке
 
 @collection // ✅ Должно идти после `part`
 class CryptoCoin {

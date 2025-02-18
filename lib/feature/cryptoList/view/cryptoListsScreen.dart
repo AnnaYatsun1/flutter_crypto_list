@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -7,6 +8,7 @@ import 'package:test_list_flutter/feature/cryptoList/block/crypto_list_bloc.dart
 import 'package:test_list_flutter/feature/cryptoList/widgets/widgest.dart';
 import 'package:test_list_flutter/repo/crypto_coins_repo/crypto_coin.dart';
 
+@RoutePage()
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
   final String title;
